@@ -1,0 +1,26 @@
+ {% extends "base.html" %}
+ {% block title %}
+It's my code
+ {% endblock title%}
+ {% block hero %} 
+
+ <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+  <div class="hero-container" data-aos="fade-in">
+    <h1>Alex Smith</h1>
+    <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
+  </div>
+</section>
+
+  {% endblock hero %}
+  {% block body%}
+ 
+{% for i in messages%}
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <label style="background:#9fc4a9" >
+                      {{i}}
+
+                    </label>
+                  </div>
+{% endfor%}
+
+  {% endblock body %}
