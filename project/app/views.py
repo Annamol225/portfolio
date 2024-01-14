@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from app.models import contact
+from app.models import *
 # Create your views here.
 
 
@@ -10,6 +10,11 @@ def index(request):
 
 def about(request):
     return render(request,'about.html')
+
+def blog(request):
+    post=Blog.objects.all()
+    context={'posts':post}
+    return render(request,'blog.html',context)
 
 def query1(request):
     if request.method =='POST': 

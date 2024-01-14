@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+ BLOG
+{% endblock title%}
+{% block body %}
+ <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Blog</h2>
+        </div>
+        <div class="row">
+{% for i in posts%}
+
+        
+          <div class="col-lg-6 col-md-6 icon-box"  data-aos="fade-up">
+            <div class="col-lg-8" data-aos="fade-right">
+             <img src="{{i.img.url}}" class="img-fluid" alt="no-image">
+            </div>
+<br>
+<div class="icon"> 
+<img src="{% static 'assets/img/profile-img.jpg' %}" alt="" class="img-fluid rounded-circle" style="height:50px ;">
+            </div>
+            <h4 class="title"><b>{{i.title}}</b></h4>
+            <p class="description">{{i.bdesc}}</p>
+            <h6>Post By:<b> {{i.authname}}</b></h6>
+            <p>Post No: <b>{{i.date}}</b></p>
+          </div>
+      
+      {% endfor %}
+    </div>
+    </section><!-- End Services Section -->
+  {% endblock body %}

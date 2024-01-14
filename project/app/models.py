@@ -9,3 +9,15 @@ class contact(models.Model):
     
     def __str__(self):
         return self.name
+
+class Blog(models.Model):
+    title=models.CharField(max_length=80)
+    authname=models.CharField(max_length=30)
+    bdesc=models.TextField()
+    img=models.ImageField(upload_to='photo',blank=True,null=True)
+    date=models.DateTimeField(auto_now_add=True,blank=True)
+
+    def __str__(self) :
+        return self.title
+    
+    
