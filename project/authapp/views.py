@@ -21,12 +21,18 @@ def signup(request):
             else:
                 user=User.objects.create_user(username=username,password=password1,email=email)
                 user.save()
-                return redirect('/authapp/login')
+                user=authenticate(username=username,password=password1)
+                if user is not None:
+                    auth.login(request,user)
+                    messages.success(request,"Login Successful")
+                    return redirect('/')                
         else:
             messages.info(request,"Password not match")
             return redirect('signup')
     else:
         return render(request,'signup.html')
+    
+
 def login(request):
     if request.method=="POST":
         username=request.POST.get('username')
@@ -46,3 +52,4 @@ def logout(request):
     auth.logout(request)
     messages.success(request,"Logout Successful")
     return redirect('/')
+ 

@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import*
+from django.contrib import messages
 
 # Create your views here. 
 def profi(request):
@@ -8,6 +9,10 @@ def profi(request):
     return render(request,'profile.html',profile)
 
 def fprofil(request):
+   
+    if not request.user.is_authenticated:
+        messages.info(request,'please login to access that page')
+        return redirect('/authapp/login')
     if request.method =='POST': 
         name=request.POST.get('name')
         position=request.POST.get('position')

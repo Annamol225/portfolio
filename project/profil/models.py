@@ -20,3 +20,4 @@ class img(models.Model):
     bgimg=models.ImageField(upload_to='photo',blank=True,null=True)
 
 
+ 
